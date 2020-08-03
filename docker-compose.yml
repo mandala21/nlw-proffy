@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  web:
+    container_name: web_app_react
+    command: yarn start
+    build: web/
+    volumes:
+      - ./web/app:/app
+    ports: 
+        - 3000:3000
