@@ -12,21 +12,19 @@ import { RD } from "../../routes";
 const Lading: FC = () => {
     return (
         <div className="page-lading">
-            <div className="container">
+            <div className="container" id="page-lading-container">
                 <div className="logo-container">
                     <img src={Brand} alt="Proffy"/>
                     <h2>Sua plataforma de estudos online</h2>
                 </div>
                 <img src={Landing} className="hero" />
                 <div className="button-container">
-                    <Link to={RD.proffys.link}>
-                        <a className="btn study" href="#">
-                            <img src={StudyIcon} /> Estudar
-                        </a>
+                    <Link to={RD.proffys.link} className="btn study" href="#">
+                        <img src={StudyIcon} /> Estudar
                     </Link>
-                    <a className="btn classroom" href="#">
+                    <Link to="" className="btn classroom" href="#">
                         <img src={ClassroomIcon} /> Dar Aulas
-                    </a>
+                    </Link>
                 </div>
                 <span className="total-container">Total de 280 conexões feitas <img src={HeartIcon} alt="conexões" /></span>
             </div>
