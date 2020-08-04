@@ -6,6 +6,8 @@ import Landing from "../../assets/images/landing.svg";
 import ClassroomIcon from "../../assets/icons/give-classes.svg";
 import StudyIcon from "../../assets/icons/study.svg";
 import HeartIcon from "../../assets/icons/purple-heart.svg";
+import { Link } from "react-router-dom";
+import { RD } from "../../routes";
 
 const Lading: FC = () => {
     return (
@@ -17,9 +19,11 @@ const Lading: FC = () => {
                 </div>
                 <img src={Landing} className="hero" />
                 <div className="button-container">
-                    <a className="btn study" href="#">
-                        <img src={StudyIcon} /> Estudar
-                    </a>
+                    <Link to={RD.proffys.link}>
+                        <a className="btn study" href="#">
+                            <img src={StudyIcon} /> Estudar
+                        </a>
+                    </Link>
                     <a className="btn classroom" href="#">
                         <img src={ClassroomIcon} /> Dar Aulas
                     </a>
