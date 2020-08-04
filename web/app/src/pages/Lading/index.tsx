@@ -16,16 +16,16 @@ const Lading: FC = () => {
                     <h2>Sua plataforma de estudos online</h2>
                 </div>
                 <img src={Landing} className="hero" />
+                <div className="button-container">
+                    <a className="btn study" href="#">
+                        <img src={StudyIcon} /> Estudar
+                    </a>
+                    <a className="btn classroom" href="#">
+                        <img src={ClassroomIcon} /> Dar Aulas
+                    </a>
+                </div>
+                <span className="total-container">Total de 280 conexões feitas <img src={HeartIcon} alt="conexões" /></span>
             </div>
-            <div className="button-container">
-                <a className="btn-study">
-                    <img src={StudyIcon} /> Estudar
-                </a>
-                <a className="btn-classroom">
-                    <img src={ClassroomIcon} /> Dar Aulas
-                </a>
-            </div>
-            <span>Total de 280 conexões feitas <img src={HeartIcon} /></span>
         </div>
     );
 }

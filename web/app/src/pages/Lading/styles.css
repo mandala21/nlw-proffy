@@ -30,3 +30,91 @@
 .hero {
     width: 100%;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 3.2rem 0;
+}
+
+.btn {
+    border-radius: 0.8rem;
+    width: 30rem;
+    height: 10.4rem;
+    font:700 2.0rem Archivo;
+    color: var(--color-button-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn img {
+    width: 4rem;
+    margin-right: 0.875rem;
+}
+
+.study {
+    background-color: var(--color-primary-lighter);
+    margin-right: 1rem;
+}
+
+.classroom {
+    background-color: var(--color-secundary);
+}
+
+.total-container {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.total-container img {
+    margin-left: 0.675rem;
+}
+
+@media(min-width:1000px){
+    .page-lading {
+        width: 100vw;
+    }
+
+    .container {
+        max-width: 1000px;
+        display: grid;
+        grid-template-rows: 350px 1fr;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-areas: 
+            "brand hero hero"
+            "buttons buttons total"
+        ;
+    }
+
+    .logo-container {
+        grid-area: brand;
+        justify-content: start;
+        align-self: center;
+        text-align: left;
+        margin: 0;
+    }
+
+    .hero {
+        grid-area: hero;
+        justify-self: end;
+    }
+
+    .button-container {
+        grid-area: buttons;
+        justify-content: start;
+    }
+
+    .total-container {
+        grid-area: total;
+        justify-self: end;
+    }
+
+    .logo-container h2 {
+        text-align: left;
+        max-width: 40rem;
+    }
+}
