@@ -13,3 +13,10 @@ Rodando o projeto em modo de desenvolvimento
 ```
 docker-compose run -p 3000:3000 --rm web
 ```
+
+## Api
+
+Instalando as dependencias
+```
+docker-compose run --rm api yarn install
+```

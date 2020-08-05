@@ -8,3 +8,11 @@ services:
       - ./web/app:/app
     ports: 
         - 3000:3000
+  api:
+    container_name: node_api
+    command: yarn start
+    build: api/
+    volumes: 
+      - ./api/app:/app
+    ports: 
+      - 8000:8000
