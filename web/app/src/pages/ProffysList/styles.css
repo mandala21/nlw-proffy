@@ -47,6 +47,10 @@
     bottom: 0;
 }
 
+#page-proffys main {
+    margin: 8rem 0;
+}
+
 @media(min-width:700px){
     #page-proffys {
         max-width: 100%;
