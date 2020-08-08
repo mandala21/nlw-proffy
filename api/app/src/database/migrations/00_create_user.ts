@@ -7,6 +7,7 @@ export async function up(knex: knex) {
         table.string('name').notNullable()
         table.string('phone').notNullable().unique()
         table.text('bio').notNullable()
+        table.text('avatar').notNullable()
         //timestamps
         table.timestamp('created_at').defaultTo('now()')
         table.timestamp('updated_at')
