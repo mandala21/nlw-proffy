@@ -16,4 +16,11 @@ export class UserRepository implements IUserRepository {
             phone: data.phone
         })
     }
+
+    async find(id: any) : Promise<User|null> {
+        let rows: Array<User> = await db('users').where({id:id})
+        if(!rows.length) return null
+        console.log(rows)
+        return new User(rows[0])
+    }
 }
