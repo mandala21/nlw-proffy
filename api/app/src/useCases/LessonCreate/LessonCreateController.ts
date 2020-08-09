@@ -12,8 +12,9 @@ export class CreateLessonController {
         let data: CreateLessonDTO = request.body
         let lesson = await this.createLessonUseCase.execute(data)
         let tranformer = new LessonTransformer
+        let returnData = await tranformer.transform(lesson)
         return response
                 .status(201)
-                .json(tranformer.transform(lesson))
+                .json(returnData)
     }
 }
