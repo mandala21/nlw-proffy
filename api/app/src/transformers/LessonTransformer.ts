@@ -7,7 +7,7 @@ import { ILessonRepository } from "../repositories/ILessonRepository";
 import { LessonSchedule } from "../entities/LessonSchedule";
 import { LessonScheduleTransform } from "./LessonScheduleTransform";
 
-export class LessonTransformer implements ITransformer {
+export class LessonTransformer implements ITransformer<Lesson> {
 
     constructor (
         private userRepository: IUserRepository,

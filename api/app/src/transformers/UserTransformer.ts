@@ -1,7 +1,7 @@
 import { User } from "../entities/User";
 import { ITransformer } from "./ITransformer";
 
-export class UserTransformer implements ITransformer {
+export class UserTransformer implements ITransformer<User> {
     transform(user: User): object {
         return {
             id: user.id,
@@ -10,5 +10,5 @@ export class UserTransformer implements ITransformer {
             avatar: user.avatar,
             bio: user.bio
         }
-    } 
+    }
 }

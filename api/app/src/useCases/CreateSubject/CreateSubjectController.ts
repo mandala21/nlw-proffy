@@ -14,7 +14,6 @@ export class CreateSubjectController {
         let subject = await this.createSubjectUseCase.execute(data)
         let transformer = new SubjectTransformer
         let returns = transformer.transform(subject)
-        console.log(returns)
         return response.json(transformer.transform(subject))    
     }
 }

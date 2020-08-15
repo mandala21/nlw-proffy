@@ -1,7 +1,7 @@
 import { ITransformer } from "./ITransformer";
 import { Subject } from "../entities/Subject";
 
-export class SubjectTransformer implements ITransformer {
+export class SubjectTransformer implements ITransformer<Subject> {
     transform(subject: Subject): object {
         return {
             id: subject.id,
