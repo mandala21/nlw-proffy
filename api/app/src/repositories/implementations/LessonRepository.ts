@@ -30,7 +30,6 @@ export class LessonRepository implements ILessonRepository {
 
     async findLessonShcedules(lesson: Lesson) : Promise<LessonSchedule[] | null> {
         let rows: LessonSchedule[] = await db('lesson_schedules').where({lesson_id: lesson.id})
-        console.log(rows)
         if(!rows.length) return null
         return rows
     }

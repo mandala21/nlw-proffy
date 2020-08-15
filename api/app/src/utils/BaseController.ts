@@ -20,6 +20,6 @@ export abstract class BaseController {
     async single<T>(response: Response, item: T, transformer: ITransformer<T>, status: number = 200) {
         return response
                 .status(status)
-                .json(transformer.transform(item))
+                .json(await transformer.transform(item))
     }
 }
