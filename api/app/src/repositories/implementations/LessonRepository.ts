@@ -34,4 +34,9 @@ export class LessonRepository implements ILessonRepository {
         if(!rows.length) return null
         return rows
     }
+
+    async all(): Promise<Lesson[]> {
+        let rows:Array<Lesson> = await db('lessons').select('*')
+        return rows
+    }
 }

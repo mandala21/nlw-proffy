@@ -4,6 +4,7 @@ import { CreateSubjectController } from "./useCases/CreateSubject/CreateSubjectC
 import { createSubjectController } from "./useCases/CreateSubject";
 import { createLessonController } from "./useCases/LessonCreate";
 import { retriveUserController } from "./useCases/RetriveUser";
+import { lessonListController } from "./useCases/LessonList";
 
 let routes = express.Router()
 
@@ -21,6 +22,10 @@ routes.post('/subjects',(req,res)=>{
 
 routes.post('/lessons',(req,res)=>{
     return createLessonController.handle(req,res)
+})
+
+routes.get('/lessons',(req,res)=>{
+    return lessonListController.handle(req,res)
 })
 
 export default routes

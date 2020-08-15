@@ -9,4 +9,6 @@ export interface ILessonRepository {
     saveScheduleLesson(data: LessonScheduleDTO[],lesson: Lesson) : Promise<Lesson>
 
     findLessonShcedules(lesson: Lesson): Promise<LessonSchedule[] | null> 
+
+    all(): Promise<Lesson[]>
 }
