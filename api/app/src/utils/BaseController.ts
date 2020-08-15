@@ -16,4 +16,10 @@ export abstract class BaseController {
         }
         return response.json({data: results})
     }
+
+    async single<T>(response: Response, item: T, transformer: ITransformer<T>, status: number = 200) {
+        return response
+                .status(status)
+                .json(transformer.transform(item))
+    }
 }

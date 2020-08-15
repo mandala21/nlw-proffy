@@ -2,6 +2,7 @@ import { UserRepository } from "../../repositories/implementations/UserRepositor
 import { Request, Response } from "express";
 import { UserTransformer } from "../../transformers/UserTransformer";
 import { BaseController } from "../../utils/BaseController";
+import { User } from "../../entities/User";
 
 export class RetriveUserController extends BaseController {
     constructor (
@@ -14,8 +15,7 @@ export class RetriveUserController extends BaseController {
         let id = request.params.id
         let user = await this.userRepository.find(id)
         if(user){
-            let transformer = new UserTransformer
-            return response.json(transformer.transform(user))
+            return this.single<User>(response,user,new UserTransformer)
         }
         return this.notFound(response)
     }
