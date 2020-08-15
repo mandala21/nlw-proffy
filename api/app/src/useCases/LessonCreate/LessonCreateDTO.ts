@@ -1,7 +1,7 @@
 import { CreateUserDTO } from "../CreateUser/CreateUserDTO";
 
 export interface LessonScheduleDTO {
-    week_day: number,
+    day_week: number,
     from: number,
     to: number,
 }

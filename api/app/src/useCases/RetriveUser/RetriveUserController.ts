@@ -1,11 +1,14 @@
 import { UserRepository } from "../../repositories/implementations/UserRepository";
 import { Request, Response } from "express";
 import { UserTransformer } from "../../transformers/UserTransformer";
+import { BaseController } from "../../utils/BaseController";
 
-export class RetriveUserController {
+export class RetriveUserController extends BaseController {
     constructor (
         private userRepository: UserRepository
-    ) {}
+    ) {
+        super();
+    }
 
     async handle(request: Request, response: Response): Promise<Response> {
         let id = request.params.id
@@ -14,8 +17,6 @@ export class RetriveUserController {
             let transformer = new UserTransformer
             return response.json(transformer.transform(user))
         }
-        return response
-                .status(404)
-                .json({message: 'Usuario nao encontrado'})
+        return this.notFound(response)
     }
 }

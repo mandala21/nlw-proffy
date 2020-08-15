@@ -1,5 +1,5 @@
 import { LessonRepository, CreateLessonData } from "../../repositories/implementations/LessonRepository";
-import { CreateLessonDTO } from "./LessonCreateDTO";
+import { CreateLessonDTO, LessonScheduleDTO } from "./LessonCreateDTO";
 import { UserRepository } from "../../repositories/implementations/UserRepository";
 import { Lesson } from "../../entities/Lesson";
 
@@ -22,6 +22,9 @@ export class CreateLessonUseCase {
         }
         //cria a lesson
         let lesson = await this.repository.save(lessonData)
+        //cria os schedules da lesson
+        const lessonScheduleData: LessonScheduleDTO[] = data.lesson_schedules
+        this.repository.saveScheduleLesson(lessonScheduleData,lesson)
         //retorna a lesson criada
         return lesson
     }

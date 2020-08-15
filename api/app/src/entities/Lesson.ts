@@ -1,5 +1,6 @@
 import { UserRepository } from "../repositories/implementations/UserRepository";
 import { User } from "./User";
+import { LessonSchedule } from "./LessonSchedule";
 
 export class Lesson {
     public readonly id: number
@@ -12,11 +13,5 @@ export class Lesson {
         this.user_id = data.user_id
         this.value = data.value
         this.subject_id = data.subject_id
-    }
-
-    async user(): Promise<User> {
-        let repository = new UserRepository
-        let user = await repository.find(this.user_id) 
-        return user
     }
 }

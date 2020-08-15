@@ -2,6 +2,7 @@ import { ILessonRepository } from "../ILessonRepository";
 import { LessonScheduleDTO, CreateLessonDTO } from "../../useCases/LessonCreate/LessonCreateDTO";
 import { Lesson } from "../../entities/Lesson";
 import db from "../../database/connection";
+import { LessonSchedule } from "../../entities/LessonSchedule";
 
 export interface CreateLessonData {
     user_id: number,
@@ -19,5 +20,18 @@ export class LessonRepository implements ILessonRepository {
             subject_id: data.subject_id,
             value: data.value
         })
+    }
+
+    async saveScheduleLesson(data: LessonScheduleDTO[], lesson: Lesson) : Promise<Lesson> {
+        let dataWithLesson = data.map(el => ({...el, lesson_id: lesson.id}))
+        await db('lesson_schedules').insert(dataWithLesson)
+        return lesson
+    }
+
+    async findLessonShcedules(lesson: Lesson) : Promise<LessonSchedule[] | null> {
+        let rows: LessonSchedule[] = await db('lesson_schedules').where({lesson_id: lesson.id})
+        console.log(rows)
+        if(!rows.length) return null
+        return rows
     }
 }
